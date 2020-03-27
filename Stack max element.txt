@@ -1,0 +1,38 @@
+public class Solution 
+    {
+        public static void main(String[] args)
+        {
+            Scanner sc=new Scanner(System.in);
+            int n=sc.nextInt();
+            StackInteger s=new Stack();
+            StackInteger ls=new Stack();
+            int max = Integer.MIN_VALUE;
+            ls.push(max);
+            for(int i=1;i=n;i++)
+            {
+                int query=sc.nextInt();
+                if(query==1)
+                {
+                    int ntop=sc.nextInt();
+                    s.push(ntop);
+                    if(ntop=ls.peek())
+                    {
+                        ls.push(s.peek());
+                    }
+                }
+                if(query==2)
+                {
+                    if(s.peek()==ls.peek())
+                    {
+                        ls.pop();
+                    }
+                    s.pop();
+                }
+                else if(query==3)
+                {
+                    System.out.println(ls.peek());
+                }
+            }
+        }
+    }
+       
