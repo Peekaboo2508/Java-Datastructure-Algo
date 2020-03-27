@@ -1,0 +1,52 @@
+public class Solution {
+
+    // Complete the isBalanced function below.
+    static String isBalanced(String s) {
+        int flag=0;
+        Stack<Character>st=new Stack<Character>();
+        for(int i=0;i<s.length()-1;i++)
+        {
+            char c=s.charAt(i);
+            if(c=='('||c=='{'||c=='[')
+            {
+                st.push(c);
+            }
+            else if(c==')'||c=='}'||c==']')
+            {
+                
+                if(st.peek()==null)
+                {
+                    //System.out.print(st.peek());
+                    
+                    flag=1;
+                    break;
+                }
+                char d=st.pop();
+                if(c==')'&&d!='(')
+                {
+                    flag=1;
+                    break;
+                }
+                else if(c=='}'&&d!='{')
+                {
+                    flag=1;
+                    break;
+                }
+                else if(c==']'&&d!='[')
+                {
+                    flag=1;
+                    break;
+                }
+            }
+
+        }
+        if(flag==1)
+        {
+            return("NO");
+        }
+        else
+        {
+            return("YES");
+        }
+
+    }
